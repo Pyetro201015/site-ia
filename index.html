@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Impacto da Inteligência Artificial no Mercado de Trabalho</title>
+
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom right, #e8ebff, #fdfdfd);
+    color: #222;
+    transition: background-color 0.8s, color 0.8s;
+  }
+
+  header {
+    background: linear-gradient(to right, #5c5cff, #7a7aff);
+    color: white;
+    padding: 25px;
+    text-align: center;
+    font-size: 26px;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #ddd;
+    padding: 8px;
+  }
+
+  nav button {
+    background: white;
+    border: 1px solid #ccc;
+    margin: 6px;
+    padding: 12px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: all 0.3s ease;
+  }
+
+  nav button:hover {
+    background: #5c5cff;
+    color: white;
+    transform: scale(1.05);
+  }
+
+  section {
+    display: none;
+    padding: 25px;
+    animation: fadeIn 0.6s ease;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  section.active {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  p {
+    margin: 0 0 10px;
+    line-height: 1.6;
+    text-align: justify;
+  }
+
+  strong {
+    color: #5c5cff;
+  }
+
+  .listen-btn {
+    background: #5c5cff;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .listen-btn:hover {
+    background: #4545d1;
+  }
+
+  /* Feedback */
+  .feedback {
+    text-align: center;
+  }
+  .stars span {
+    font-size: 32px;
+    cursor: pointer;
+    color: #ccc;
+    transition: color 0.3s;
+  }
+  .stars span.active {
+    color: gold;
+  }
+  .message {
+    margin-top: 15px;
+    font-weight: bold;
+  }
+
+  /* Jogo da Forca */
+  .game {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .game input {
+    padding: 6px;
+    text-align: center;
+  }
+  .config {
+    text-align: center;
+    margin-top: 20px;
+  }
+  select {
+    margin: 4px;
+    padding: 8px;
+    border-radius: 6px;
+  }
+</style>
+</head>
+<body>
+
+<header>Impactos da Inteligência Artificial no Mercado de Trabalho</header>
+
+<nav>
+  <button onclick="openTab('texto')">Texto</button>
+  <button onclick="openTab('infoTexto')">Informações do Texto</button>
+  <button onclick="openTab('infoSite')">Informações do Site</button>
+  <button onclick="openTab('feedback')">Feedback</button>
+  <button onclick="openTab('jogos')">Jogos</button>
+</nav>
+
+<section id="texto" class="active">
+  <p id="textoPrincipal">
+  A <strong>Inteligência Artificial (IA)</strong> vem impactando profundamente o mercado de trabalho em escala global. Com o avanço dos algoritmos e da automação, diversas profissões estão sendo repensadas e adaptadas. O uso de IA em empresas permite que processos sejam otimizados, tarefas repetitivas eliminadas e decisões tomadas com base em dados em tempo real. No entanto, esse mesmo avanço traz preocupações sobre a substituição da força humana pela inteligência das máquinas.  
+  Profissões como <strong>caixas de supermercado, operadores de telemarketing, motoristas, designers e artistas digitais</strong> estão entre as mais afetadas. A automação e os sistemas inteligentes têm tornado muitos desses cargos obsoletos, o que exige que profissionais busquem novas habilidades e formação contínua.  
+  Por outro lado, surgem novas oportunidades em áreas como <strong>engenharia de dados, aprendizado de máquina, segurança cibernética, análise de sistemas e ética digital</strong>. A IA também cria espaço para empreendedores e inovadores desenvolverem soluções que melhorem o cotidiano das pessoas.  
+  A educação é um dos pilares mais importantes nessa transformação. A necessidade de profissionais com pensamento crítico, criatividade e empatia cresce a cada dia. Essas são qualidades que, até o momento, a IA não consegue reproduzir integralmente.  
+  Além disso, há uma grande discussão ética sobre o uso da inteligência artificial: quem é responsável quando uma máquina erra? Como evitar que algoritmos tomem decisões discriminatórias ou injustas?  
+  O futuro do trabalho dependerá da capacidade humana de se adaptar, aprender e evoluir junto com as tecnologias. Países que investirem em capacitação, inovação e políticas públicas equilibradas estarão mais preparados para essa nova era digital.  
+  É essencial compreender que a IA não é inimiga do trabalhador, mas uma ferramenta que, se usada corretamente, pode melhorar a qualidade de vida, reduzir desigualdades e criar novos caminhos profissionais.  
+  </p>
+
+  <div class="config">
+    <button class="listen-btn" onclick="lerTexto()">🔊 Ouvir Texto</button><br><br>
+    <label>Cor do Fundo:</label>
+    <input type="color" id="bgColor" onchange="changeBg(this.value)">
+    <label>Cor da Fonte:</label>
+    <input type="color" id="textColor" onchange="changeText(this.value)">
+    <label>Fonte:</label>
+    <select onchange="changeFont(this.value)">
+      <option value="'Poppins', sans-serif">Padrão</option>
+      <option value="'Roboto', sans-serif">Roboto</option>
+      <option value="'Merriweather', serif">Merriweather</option>
+      <option value="'Open Sans', sans-serif">Open Sans</option>
+      <option value="'Courier New', monospace">Courier New</option>
+    </select>
+  </div>
+</section>
+
+<section id="infoTexto">
+  <p><strong>Tema:</strong> Impactos da Inteligência Artificial no Mercado de Trabalho</p>
+  <p><strong>Resumo:</strong> O texto aborda como a IA está transformando empregos, criando novas funções e exigindo que os profissionais se adaptem a uma realidade tecnológica mais rápida e automatizada.</p>
+  <p><strong>Principais Palavras:</strong> Automação, Emprego, Tecnologia, Ética, Educação, Inovação.</p>
+</section>
+
+<section id="infoSite">
+  <p>O site foi criado com o propósito de informar e educar sobre os impactos da <strong>Inteligência Artificial</strong> na sociedade moderna. Ele combina informações detalhadas com interatividade para gerar aprendizado e reflexão.</p>
+  <p>Desenvolvido com um design suave e intuitivo, o objetivo é oferecer uma experiência agradável ao usuário, com acessibilidade e opções de personalização visual.</p>
+</section>
+
+<section id="feedback">
+  <div class="feedback">
+    <h3>Deixe sua avaliação:</h3>
+    <div class="stars">
+      <span onclick="rate(1)">★</span>
+      <span onclick="rate(2)">★</span>
+      <span onclick="rate(3)">★</span>
+      <span onclick="rate(4)">★</span>
+      <span onclick="rate(5)">★</span>
+    </div>
+    <div class="message" id="feedbackMsg"></div>
+  </div>
+</section>
+
+<section id="jogos">
+  <div class="game">
+    <h3>Jogo da Forca: IA</h3>
+    <p id="wordDisplay"></p>
+    <p id="wrongLetters"></p>
+    <input type="text" id="letterInput" maxlength="1" placeholder="Digite uma letra">
+    <button onclick="checkLetter()">Tentar</button>
+    <p id="result"></p>
+  </div>
+</section>
+
+<script>
+  // Função para alternar entre abas
+  function openTab(tabId) {
+    document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+    document.getElementById(tabId).classList.add("active");
+  }
+
+  // Leitura de texto (modo acessibilidade)
+  function lerTexto() {
+    const texto = document.getElementById("textoPrincipal").innerText;
+    const utter = new SpeechSynthesisUtterance(texto);
+    utter.lang = "pt-BR";
+    utter.rate = 1;
+    speechSynthesis.speak(utter);
+  }
+
+  // Configurações de aparência
+  function changeBg(color) {
+    document.body.style.background = color;
+  }
+  function changeText(color) {
+    document.body.style.color = color;
+  }
+  function changeFont(font) {
+    document.body.style.fontFamily = font;
+  }
+
+  // Feedback
+  function rate(stars) {
+    document.querySelectorAll('.stars span').forEach((s, i) => {
+      s.classList.toggle('active', i < stars);
+    });
+    const msg = {
+      1: "Entendemos o porque de ter 1 estrela, iremos refinar o site para deixar melhor aos usuários(as)...",
+      2: "Muito obrigado pelo voto, mas vamos melhorar o site!",
+      3: "Valeu por dar essas estrelas! Importa muito para gente saber como está o site.",
+      4: "Obrigado por esse voto! Agradecemos pela confiança!",
+      5: "Muito obrigado por 5 estrelas! Isso significa bastante para a gente!"
+    };
+    document.getElementById("feedbackMsg").innerText = msg[stars];
+  }
+
+  // Jogo da Forca
+  const palavras = ["inteligencia", "trabalho", "algoritmo", "automacao", "futuro"];
+  let palavra = palavras[Math.floor(Math.random() * palavras.length)];
+  let display = "_ ".repeat(palavra.length).trim().split(" ");
+  let erros = [];
+
+  document.getElementById("wordDisplay").innerText = display.join(" ");
+
+  function checkLetter() {
+    const letra = document.getElementById("letterInput").value.toLowerCase();
+    document.getElementById("letterInput").value = "";
+    if (!letra.match(/[a-zç]/)) return;
+
+    if (palavra.includes(letra)) {
+      for (let i = 0; i < palavra.length; i++) {
+        if (palavra[i] === letra) display[i] = letra;
+      }
+    } else {
+      if (!erros.includes(letra)) erros.push(letra);
+    }
+
+    document.getElementById("wordDisplay").innerText = display.join(" ");
+    document.getElementById("wrongLetters").innerText = "Letras erradas: " + erros.join(", ");
+
+    if (!display.includes("_")) {
+      document.getElementById("result").innerText = "Parabéns! Você venceu!";
+    } else if (erros.length >= 6) {
+      document.getElementById("result").innerText = "Fim de jogo! A palavra era: " + palavra;
+    }
+  }
+</script>
+
+</body>
+</html>
